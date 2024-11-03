@@ -5,7 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 頁面加載時，淡入效果
+            $("img").fadeIn(1000); // 圖片淡入
+            $("h1, p").hide().fadeIn(1500); // 逐步淡入標題和段落
+            
+            // 按鈕點擊動畫效果
+            $(".button-link").click(function(event) {
+                event.preventDefault(); // 防止連結跳轉，讓動畫完成後再跳轉
+                $(this).effect("bounce", { times: 3 }, 500, function() {
+                    window.location.href = $(this).attr("href"); // 動畫完成後跳轉
+                });
+            });
+        });
+    </script>
   </head>
   <body>
     <main>
